@@ -12,7 +12,10 @@ LEN_EXTEN = len(MD_EXTENSION)
 
 
 def is_md_file(fname):
-    return fname[:LEN_EXTEN] == MD_EXTENSION
+    return fname[-LEN_EXTEN:] == MD_EXTENSION
+
+
+assert is_md_file("hello.md")
 
 
 
@@ -26,9 +29,12 @@ SEP = os.path.sep
 
 
 
-def should_ignore(name):
+
+def should_ignore(dir):
+    if BUILD_FOLDER in dir:
+        return True
     for ignore in IGNORE_FOLDERS:
-        if ignore in name:
+        if ignore in dir:
             return True
 
 
@@ -37,23 +43,39 @@ def should_ignore(name):
 def copy_over_file(rt, fname):
     full_src = os.path.join(rt, fname)
     full_dst = os.path.join(rt, BUILD_FOLDER + SEP + fname)
-    print(full_src, full_dst)
     shutil.copyfile(full_src, full_dst)
 
 
 
-for rt, dirs, files in os.walk(ROOT):
-    for dirname in dirs:
-        if dirname.startswith(BUILD_FOLDER):
-            continue
-        if not should_ignore(dirname):
-            os.makedirs(os.path.join(rt,dirname), exist_ok=True)
-    for filename in files:
-        if should_ignore(filename) or filename.startswith(BUILD_FOLDER):
-            continue
-        if not is_md_file(filename):
-            copy_over_file(rt, filename)
+def remove(root, fname):
+    full = os.path.join(root, fname)
+    print("FULL:", full)
+    os.remove(full)
 
 
 
 
+def ignore(dir, files):
+    '''
+    returns a list of files that should be ignored.
+    '''
+    to_ignore = [] # a list of files to be ignored
+    if should_ignore(dir):
+        to_ignore = files
+        return to_ignore
+    for file in files:
+        if is_md_file(file):
+            to_ignore.append(file)
+    return to_ignore
+
+
+
+
+
+def run():
+    dest = ROOT + SEP + BUILD_FOLDER
+    shutil.copytree(ROOT, dest, ignore=ignore)
+
+
+
+run()
