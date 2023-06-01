@@ -13,9 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - run: python build.py
+    - run: python build/build.py
 
     - uses: actions/upload-artifact@v3
       with:
-        name: my-artifact
-        path: build/
+        name: game_build
+        path: build_output/
