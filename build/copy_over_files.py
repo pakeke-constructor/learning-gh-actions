@@ -22,7 +22,7 @@ assert is_bad_extension("hello.md")
 
 
 
-raise RuntimeError( "DON'T RUN THIS!!! YOU WERE ABOUT TO DUPLICATE THE ENTIRE FILESYSTEM")
+# raise RuntimeError( "DON'T RUN THIS!!! YOU WERE ABOUT TO DUPLICATE THE ENTIRE FILESYSTEM")
 # If you want to run this locally, set the root properly.
 # Else, it will scan the entire filesys.
 ROOT = "" # "C:\_PROGRAMMING\PY\learning_gh_actions"
