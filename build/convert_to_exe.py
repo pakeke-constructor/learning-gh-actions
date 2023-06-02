@@ -2,7 +2,7 @@
 import shutil
 import common
 
-from common import SEP
+from common import *
 
 
 
@@ -20,10 +20,12 @@ def fuse_exe_windows():
     with open(love_path, "r") as f:
         love_binary = f.read()
 
-    with open("build/zipped.zip", "r") as zp:
+    zip_path = BUILD_OUTPUT_FOLDER + SEP + FILES_BUILD_OUTPUT_ZIPNAME + FILES_BUILD_OUTPUT_ZIP_EXTEN
+    with open(zip_path, "r") as zp:
         zip_binary = zp.read()
 
-    with open("umg.exe", "w+") as out:
+    exe_path = BUILD_OUTPUT_FOLDER + SEP + "umg.exe"
+    with open(exe_path, "w+") as out:
         out.write(love_binary + zip_binary)
 
 
@@ -34,10 +36,14 @@ def copy_over_love():
 
 
 def run():
+    # copy shared object libs over
     copy_over_libs()
+
+    # copy over love dlls, and love exe
     copy_over_love()
 
-    shutil.make_archive("zipped", "zip", common.FILES_BUILD_OUTPUT_FOLDER)
+    # create the zipped src code (aka .love file)
+    shutil.make_archive(FILES_BUILD_OUTPUT_ZIPNAME, "zip", common.FILES_BUILD_OUTPUT_FOLDER)
 
     if common.is_windows():
         fuse_exe_windows()
