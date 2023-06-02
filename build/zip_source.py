@@ -2,6 +2,7 @@
 import shutil
 import os
 
+import common
 
 
 INVALID_EXTENSIONS = [
@@ -30,7 +31,7 @@ from common import *
 
 
 def should_ignore(dir):
-    if BUILD_FOLDER in dir:
+    if BUILD_OUTPUT_FOLDER in dir:
         return True
         
     for ignore in IGNORE_FOLDERS:
@@ -58,10 +59,24 @@ def ignore(dir, files):
 
 
 
+opjoin = os.path.join
 
 
 def run():
-    dest = ROOT + SEP + BUILD_FOLDER
+    # copy src files over
+    dest = FILES_BUILD_OUTPUT_FOLDER
     shutil.copytree(ROOT, dest, ignore=ignore)
+    # TODO: Convert all lua to bytecode here.
+
+    # create the zipped src code (aka .love file)
+    # this will be created inside the FILES_BUILD_OUTPUT_FOLDER
+    exten = FILES_BUILD_OUTPUT_ZIP_EXTEN.replace(".", "")
+    shutil.make_archive(FILES_BUILD_OUTPUT_ZIPNAME, exten, dest)
+    # move zip into regular build folder
+    fname = FILES_BUILD_OUTPUT_ZIPNAME + FILES_BUILD_OUTPUT_ZIP_EXTEN
+    shutil.move(fname, FILES_BUILD_OUTPUT_FOLDER)
+
+    # delete source files, since we have already zipped them
+    shutil.rmtree(dest)
 
 

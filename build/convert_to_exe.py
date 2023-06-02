@@ -17,15 +17,15 @@ def fuse_exe_windows():
     zip_binary = None
     love_path = common.get_love_path() + SEP + "love.exe"
 
-    with open(love_path, "r") as f:
+    with open(love_path, "rb") as f:
         love_binary = f.read()
 
     zip_path = BUILD_OUTPUT_FOLDER + SEP + FILES_BUILD_OUTPUT_ZIPNAME + FILES_BUILD_OUTPUT_ZIP_EXTEN
-    with open(zip_path, "r") as zp:
+    with open(zip_path, "rb") as zp:
         zip_binary = zp.read()
 
     exe_path = BUILD_OUTPUT_FOLDER + SEP + "umg.exe"
-    with open(exe_path, "w+") as out:
+    with open(exe_path, "wb+") as out:
         out.write(love_binary + zip_binary)
 
 
@@ -41,9 +41,6 @@ def run():
 
     # copy over love dlls, and love exe
     copy_over_love()
-
-    # create the zipped src code (aka .love file)
-    shutil.make_archive(FILES_BUILD_OUTPUT_ZIPNAME, "zip", common.FILES_BUILD_OUTPUT_FOLDER)
 
     if common.is_windows():
         fuse_exe_windows()

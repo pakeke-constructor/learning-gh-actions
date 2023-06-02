@@ -32,7 +32,7 @@ def get_lib_path():
     return DLL_FOLDER + SEP + CURRENT_BUILD_TARGET
 
 
-LOVE_FOLDER = BUILD_FOLDER + SEP + "dlls"
+LOVE_FOLDER = BUILD_FOLDER + SEP + "love"
 def get_love_path():
     return LOVE_FOLDER + SEP + CURRENT_BUILD_TARGET
 
