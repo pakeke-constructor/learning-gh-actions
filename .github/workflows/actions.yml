@@ -22,5 +22,5 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: game_build
+        name: game-${{matrix.os}}-${{matrix.arch}}
         path: build_output/
