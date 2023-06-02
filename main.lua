@@ -1,5 +1,5 @@
 
-local size = 5
+local size = require("my_proj.my_file")
 
 
 function love.draw()

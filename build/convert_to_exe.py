@@ -1,6 +1,7 @@
 
 import shutil
 import common
+import os
 
 from common import *
 
@@ -23,6 +24,7 @@ def fuse_exe_windows():
     zip_path = BUILD_OUTPUT_FOLDER + SEP + FILES_BUILD_OUTPUT_ZIPNAME + FILES_BUILD_OUTPUT_ZIP_EXTEN
     with open(zip_path, "rb") as zp:
         zip_binary = zp.read()
+    os.remove(zip_path)
 
     exe_path = BUILD_OUTPUT_FOLDER + SEP + "umg.exe"
     with open(exe_path, "wb+") as out:
