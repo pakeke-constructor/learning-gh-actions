@@ -37,10 +37,22 @@ def get_love_path():
     return LOVE_FOLDER + SEP + CURRENT_BUILD_TARGET
 
 
-def set_build_target(targ):
-    assert targ in VALID_TARGETS
+VALID_ARCHES = ["64", "32"]
+
+def get_os_name(os):
+    if "windows" in os:
+        return "win"
+    elif "ubuntu" in os or "linux" in os:
+        return "linux"
+    raise RuntimeError("unsupported os")
+
+
+
+def set_build_target(os, arch):
+    assert arch in VALID_ARCHES
+    name = get_os_name(os)
     global CURRENT_BUILD_TARGET
-    CURRENT_BUILD_TARGET = targ
+    CURRENT_BUILD_TARGET = name + arch
 
 
 def is_windows():

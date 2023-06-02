@@ -8,12 +8,17 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        arch: [32, 64]
 
     steps:
     - uses: actions/checkout@v3
 
-    - run: python build/build.py
+    - run: python build/build.py ${{matrix.os}} ${{matrix.arch}}
 
     - uses: actions/upload-artifact@v3
       with:

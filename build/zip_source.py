@@ -74,7 +74,7 @@ def run():
     shutil.make_archive(FILES_BUILD_OUTPUT_ZIPNAME, exten, dest)
     # move zip into regular build folder
     fname = FILES_BUILD_OUTPUT_ZIPNAME + FILES_BUILD_OUTPUT_ZIP_EXTEN
-    shutil.move(fname, FILES_BUILD_OUTPUT_FOLDER)
+    shutil.move(fname, BUILD_OUTPUT_FOLDER)
 
     # delete source files, since we have already zipped them
     shutil.rmtree(dest)
