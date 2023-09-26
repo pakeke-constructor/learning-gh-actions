@@ -26,7 +26,7 @@ jobs:
       run: tree
     
     - name: Build
-      run: cd main && python3 ../makelove/makelove win32
+      run: cd main && python3 -m makelove win64
 
     - name: Debug
       run: tree
