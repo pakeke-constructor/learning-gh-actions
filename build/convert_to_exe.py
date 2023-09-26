@@ -31,7 +31,6 @@ def fuse_exe_windows():
         out.write(love_binary + zip_binary)
 
 
-
 def copy_over_love():
     love_path = common.get_love_path()
     shutil.copytree(love_path, common.BUILD_OUTPUT_FOLDER, dirs_exist_ok=True)
