@@ -19,10 +19,8 @@ jobs:
         path: main
 
     - name: Checkout makelove
-      uses: actions/checkout@v2
-      with:
-        repository: pfirsich/makelove
-        path: makelove
+        # git+https://github.com/pfirsich/makelove.git@master
+      run: pip3 install git+https://github.com/pfirsich/makelove.git@master
 
     - name: Debug0
       run: tree
