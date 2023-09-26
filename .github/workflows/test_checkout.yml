@@ -14,6 +14,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with: 
+        path: main
+
+    - name: Checkout makelove
+      uses: actions/checkout@v2
+      with:
+        repository: pfirsich/makelove
+        path: makelove
+    
+    - name: Build
+      run: cd main && python3 makelove win32
 
     - name: Debug
       run: tree
