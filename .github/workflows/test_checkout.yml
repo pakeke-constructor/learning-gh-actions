@@ -28,7 +28,7 @@ jobs:
       run: tree
     
     - name: Build
-      run: cd main && python3 -m ${{github.workspace}}/makelove win32
+      run: cd main && python3 ${{github.workspace}}/makelove win32
 
     - name: Debug
       run: tree
