@@ -31,3 +31,9 @@ jobs:
     - name: Debug
       run: tree
 
+    - name: Artifact (Win64)
+      uses: actions/upload-artifact@v2
+      with:
+        name: win64
+        path: build_output/win64/
+
