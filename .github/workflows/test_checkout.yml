@@ -4,8 +4,9 @@
 name: test_checkout
 
 
-on:
-  workflow_dispatch
+# on: workflow_dispatch
+on: push
+
 
 
 jobs:
@@ -22,6 +23,9 @@ jobs:
       with:
         repository: pfirsich/makelove
         path: makelove
+
+    - name: Debug0
+      run: tree
     
     - name: Build
       run: cd main && python3 makelove win32
