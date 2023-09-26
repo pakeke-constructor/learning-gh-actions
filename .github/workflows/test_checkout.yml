@@ -35,5 +35,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: win64
-        path: makelove-build/win64/
+        path: main/makelove-build/win64/
 
