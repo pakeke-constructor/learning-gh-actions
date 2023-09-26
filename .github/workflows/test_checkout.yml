@@ -1,7 +1,7 @@
 
 
 
-name: build_project
+name: test_checkout
 
 
 on:
