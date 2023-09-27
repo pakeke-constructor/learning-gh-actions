@@ -19,6 +19,6 @@ jobs:
         key: name
 
     - name: TREE
-      run: tree ${{ inputs.path }}
+      run: tree
 
 
