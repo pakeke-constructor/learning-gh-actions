@@ -38,7 +38,7 @@ jobs:
         path: main/makelove-build/win64/
 
     - name: Cache
-      uses: actions/cache@v2
+      uses: actions/cache/save@v3
       with:
         path: ./
         key: name

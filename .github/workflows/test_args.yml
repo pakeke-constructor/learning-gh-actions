@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Uncache
-      uses: actions/cache@v2
+      uses: actions/cache/restore@v3
       with:
         path: ./
         key: name
