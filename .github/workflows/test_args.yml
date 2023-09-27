@@ -1,0 +1,16 @@
+
+
+on:
+  workflow_call:
+    inputs:
+      path: 
+        required: true
+        type: string
+
+jobs:
+  supertree:
+    runs-on: ubuntu-latest
+    steps:
+    - run: tree {}
+
+

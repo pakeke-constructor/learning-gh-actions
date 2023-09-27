@@ -37,3 +37,12 @@ jobs:
         name: win64
         path: main/makelove-build/win64/
 
+
+  call-workflow-passing-data:
+    uses: .github/workflows/test_args.yml
+    with:
+      path: ./
+
+
+
+
