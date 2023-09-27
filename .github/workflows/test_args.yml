@@ -11,6 +11,6 @@ jobs:
   supertree:
     runs-on: ubuntu-latest
     steps:
-    - run: tree {}
+    - run: tree ${{ inputs.path }}
 
 
