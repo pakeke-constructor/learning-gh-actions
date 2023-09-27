@@ -39,7 +39,7 @@ jobs:
 
 
   call-workflow-passing-data:
-    uses: ./.github/workflows/test_args.yml@master
+    uses: ./.github/workflows/test_args.yml
     with:
       path: ./
 
