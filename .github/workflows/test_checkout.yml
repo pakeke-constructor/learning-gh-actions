@@ -39,6 +39,7 @@ jobs:
 
     - name: Cache
       uses: actions/cache/save@v3
+      if: always()
       with:
         path: ./
         key: name
