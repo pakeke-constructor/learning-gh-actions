@@ -10,7 +10,15 @@ on:
 jobs:
   supertree:
     runs-on: ubuntu-latest
+
     steps:
-    - run: tree ${{ inputs.path }}
+    - name: Uncache
+      uses: actions/cache@v2
+      with:
+        path: ./
+        key: name
+
+    - name: TREE
+      run: tree ${{ inputs.path }}
 
 

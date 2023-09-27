@@ -37,6 +37,11 @@ jobs:
         name: win64
         path: main/makelove-build/win64/
 
+    - name: Cache
+      uses: actions/cache@v2
+      with:
+        path: ./
+        key: name
 
   call-workflow-passing-data:
     uses: ./.github/workflows/test_args.yml
