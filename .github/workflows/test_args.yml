@@ -14,6 +14,8 @@ jobs:
     steps:
     - name: Uncache
       uses: actions/cache/restore@v3
+      env:
+        cache: cache
       with:
         path: ./
         key: name
