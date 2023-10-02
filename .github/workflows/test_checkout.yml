@@ -26,7 +26,7 @@ jobs:
       run: tree
     
     - name: Build
-      run: cd main && python3 -m makelove win64
+      run: cd main && python3 -m makelove win64 appimage
 
     - name: Debug
       run: tree
@@ -37,14 +37,6 @@ jobs:
         name: win64
         path: main/makelove-build/win64/
 
-    - name: Cache
-      uses: actions/cache/save@v3
-      env:
-        cache: cache
-      if: always()
-      with:
-        path: ./
-        key: name
 
   call-workflow-passing-data:
     uses: ./.github/workflows/test_args.yml
