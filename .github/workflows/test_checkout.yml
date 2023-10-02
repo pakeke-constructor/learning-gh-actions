@@ -12,7 +12,6 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-20.04
-       #ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
