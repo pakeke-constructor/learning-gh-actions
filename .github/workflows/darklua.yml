@@ -17,8 +17,9 @@ jobs:
 
     - uses: actions/checkout@v3
       with:
-        name: seaofvoices/darklua@7410329ddf73907c421080d782b2e1860fb84aa8
+        name: seaofvoices/darklua
         path: darklua
+        refs: 7410329ddf73907c421080d782b2e1860fb84aa8
 
     - name: Debug
       run: tree
