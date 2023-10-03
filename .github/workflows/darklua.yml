@@ -15,7 +15,7 @@ jobs:
       with:
         path: main
 
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@master # make sure to use @master here
       with:
         name: seaofvoices/darklua
         path: darklua
