@@ -21,9 +21,8 @@ jobs:
         path: darklua
 
     - name: Build Darklua
-      run:
+      run: |
         cd darklua
-        cargo build
         cargo build --locked --release --target x86_64-unknown-linux-gnu
       env:
         CARGO_TARGET_DIR: output
