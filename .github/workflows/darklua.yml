@@ -19,7 +19,7 @@ jobs:
       uses: GuillaumeFalourd/clone-github-repo-action@v2.2
       with:
         depth: 1
-        branch: 'master'
+        branch: 'main'
         owner: 'seaofvoices'
         repository: 'darklua'
 
