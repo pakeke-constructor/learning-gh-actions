@@ -15,11 +15,13 @@ jobs:
       with:
         path: main
 
-    - uses: actions/checkout@master # make sure to use @master here
+    - name: Clone Darklua
+      uses: GuillaumeFalourd/clone-github-repo-action@v2.2
       with:
-        name: seaofvoices/darklua
-        path: darklua
-        refs: 7410329ddf73907c421080d782b2e1860fb84aa8
+        depth: 1
+        branch: 'master'
+        owner: 'seaofvoices'
+        repository: 'darklua'
 
     - name: Debug
       run: tree
