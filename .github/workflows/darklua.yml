@@ -15,7 +15,6 @@ jobs:
       with:
         path: main
 
-    steps:
     - uses: actions/checkout@7410329ddf73907c421080d782b2e1860fb84aa8
       with:
         name: seaofvoices/darklua
