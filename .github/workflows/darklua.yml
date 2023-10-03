@@ -33,6 +33,9 @@ jobs:
       env:
         CARGO_TARGET_DIR: output
 
+    - name: Debug
+      run: tree
+
     - name: Darklua Preprocessing
       run: |
         sudo chmod +x ./darklua/output/darklua
