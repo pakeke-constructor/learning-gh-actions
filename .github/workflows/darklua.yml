@@ -15,9 +15,9 @@ jobs:
       with:
         path: main
 
-    - uses: actions/checkout@7410329ddf73907c421080d782b2e1860fb84aa8
+    - uses: actions/checkout@v3
       with:
-        name: seaofvoices/darklua
+        name: seaofvoices/darklua@7410329ddf73907c421080d782b2e1860fb84aa8
         path: darklua
 
     - name: Build Darklua
