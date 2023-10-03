@@ -15,6 +15,7 @@ jobs:
       with:
         path: main
 
+    # Clone and build Darklua:
     - name: Clone Darklua
       uses: GuillaumeFalourd/clone-github-repo-action@v2.2
       with:
@@ -22,10 +23,6 @@ jobs:
         branch: 'main'
         owner: 'seaofvoices'
         repository: 'darklua'
-
-    - name: Debug
-      run: tree
-
     - name: Build Darklua
       run: |
         cd darklua
@@ -41,12 +38,8 @@ jobs:
         sudo chmod +x ./darklua/output/x86_64-unknown-linux-gnu/release/darklua
         sudo ./darklua/output/x86_64-unknown-linux-gnu/release/darklua process main main --config main/.darklua.json
 
-# location:
-    # output/release/x86_64-unknown-linux-gnu/release/darklua
-
-
     - name: Debug
-      run: echo cat ./main/my_proj/my_file.lua
+      run: cat ./main/my_proj/my_file.lua
 
 
 
