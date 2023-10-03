@@ -20,6 +20,9 @@ jobs:
         name: seaofvoices/darklua@7410329ddf73907c421080d782b2e1860fb84aa8
         path: darklua
 
+    - name: Debug
+      run: tree
+
     - name: Build Darklua
       run: |
         cd darklua
