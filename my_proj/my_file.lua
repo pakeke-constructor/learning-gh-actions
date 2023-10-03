@@ -1,13 +1,11 @@
 
 print("hello")
 
-function _G.func_with_comment(x)
+local function foo(x)
     --[[
-        hello, im a comment
+        Hello! these commentsshould be removed
     ]]
     print(x)
-    -- im another comments
 end
 
-return 1
-
+return foo
