@@ -4,8 +4,7 @@
 name: test_checkout
 
 
-# on: workflow_dispatch
-on: push
+on: workflow_dispatch
 
 
 
